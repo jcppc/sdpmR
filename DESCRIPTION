@@ -5,10 +5,10 @@ Version: 0.1.0
 Author: João Caldeira
 Maintainer: João Caldeira <jcppc@iscte-iul.pt>
 Description: - This package, loads an event log with developers activities.
-    - Detects the different fingerprints in development sessions using Topic Modeling
-    - Based on the fingerprints, splits the dataset into the correspondent process variants
-    - Discovers and plot each variant model using the FuzzyMiner algorithm
-    - Render the data into pdf and latex formats
+    - Detects the different fingerprints in development sessions using Topic Modeling.
+    - Based on the fingerprints, splits the dataset into the correspondent process variants.
+    - Discovers and plot each variant model using the FuzzyMiner algorithm.
+    - Render the data into pdf and latex formats.
 License: Free
 Encoding: UTF-8
 LazyData: true
