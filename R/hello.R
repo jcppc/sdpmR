@@ -31,6 +31,15 @@ spots_load <- function( log ) {
                          activity_id = "event",
                          timestamp = "completeTime")
 
+  # Mine the fuzzy model
+  metrics <- mine_fuzzy_model(log)
+
+  # Visualize the fuzzy model for a given set of
+  # parameters
+  viz_fuzzy_model(metrics = metrics,
+                  node_sig_threshold = 0,
+                  edge_sig_threshold = 0.3,
+                  edge_sig_to_corr_ratio = 0.75)
 
 
   return ("Model Done.");
