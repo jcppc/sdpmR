@@ -36,11 +36,14 @@ spots_load <- function( log ) {
 
   # Visualize the fuzzy model for a given set of
   # parameters
+  grDevices::cairo_pdf(family = "Times New Roman", onefile = TRUE, file = "/Users/joaocaldeira/DesktopVariantModel.pdf")
+
   fuzzymineR::viz_fuzzy_model(metrics = metrics,
                   node_sig_threshold = 0,
                   edge_sig_threshold = 0.3,
                   edge_sig_to_corr_ratio = 0.75)
 
+  dev.off()
 
   return ("Model Done.");
 
