@@ -21,3 +21,5 @@ hello <- function() {
 spots_load <- function( log ) {
   print("Hello, Log!")
 }
+
+
