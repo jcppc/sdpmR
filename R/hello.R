@@ -13,27 +13,28 @@
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
 
-hello <- function() {
-  print("Hello, world!")
+spots_version <- function() {
+  print("Hello, from SPOTS v.1.0.0")
 }
 
 
 spots_load <- function( log ) {
 
-  library(fuzzymineR)
+  #library(fuzzymineR)
 
   # Load the sample dataset
-  data("artificial_loan_process")
+  #data("artificial_loan_process")
 
   # Create an eventlog object
-  log <- fuzzymineR::create_eventlog(artificial_loan_process,
+  log <- fuzzymineR::create_eventlog( log ,
                          case_id = "case",
                          activity_id = "event",
                          timestamp = "completeTime")
 
-  print("Hello, Log!")
 
-  return (log);
+
+  return ("Model Done.");
+
 }
 
 
