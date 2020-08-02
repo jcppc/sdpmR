@@ -19,7 +19,21 @@ hello <- function() {
 
 
 spots_load <- function( log ) {
+
+  library(fuzzymineR)
+
+  # Load the sample dataset
+  data("artificial_loan_process")
+
+  # Create an eventlog object
+  log <- fuzzymineR::create_eventlog(artificial_loan_process,
+                         case_id = "case",
+                         activity_id = "event",
+                         timestamp = "completeTime")
+
   print("Hello, Log!")
+
+  return (log);
 }
 
 
