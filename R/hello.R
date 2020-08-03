@@ -26,7 +26,7 @@ spots_load <- function( log ) {
   #data("artificial_loan_process")
 
   # Create an eventlog object
-  log <- fuzzymineR::create_eventlog( log ,
+  log <- fuzzymineR::create_eventlog( artificial_loan_process ,
                          case_id = "case",
                          activity_id = "event",
                          timestamp = "completeTime")
@@ -36,14 +36,13 @@ spots_load <- function( log ) {
 
   # Visualize the fuzzy model for a given set of
   # parameters
-  grDevices::cairo_pdf(family = "Times New Roman", onefile = TRUE, file = "/Users/joaocaldeira/DesktopVariantModel.pdf")
 
-  fuzzymineR::viz_fuzzy_model(metrics = metrics,
+  model <- fuzzymineR::viz_fuzzy_model(metrics = metrics,
                   node_sig_threshold = 0,
                   edge_sig_threshold = 0.3,
                   edge_sig_to_corr_ratio = 0.75)
 
-  dev.off()
+  DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( "/Users/joaocaldeira/Desktop/VariantModel.pdf" )
 
   return ("Model Done.");
 
