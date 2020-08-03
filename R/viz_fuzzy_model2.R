@@ -563,7 +563,7 @@ viz_fuzzy_model2 <- function(metrics, node_sig_threshold = 0, edge_sig_threshold
                  shape = "rectangle",
                  style = "rounded,filled",
                  fixedsize = FALSE,
-                 penwidth = 2,
+                 penwidth = 1,
                  tooltip = agg_node_sig_2
   ) -> nodes
 

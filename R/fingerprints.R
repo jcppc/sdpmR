@@ -26,15 +26,13 @@ spot_fingerprints <- function( input,
                                graph_direction = "TB",
                                graph_palette = "Greens" ) {
 
- library(fuzzymineR)
- #source('R/viz_fuzzy_model2.R')
-
   # Load the sample dataset
+  library(fuzzymineR)
   data("artificial_loan_process")
-  input <- as.data.frame( artificial_loan_process ); graph_direction <- "TB"; graph_palette <- "Greens"
+  input <- artificial_loan_process; graph_direction <- "TB"; graph_palette <- "Greens"
 
   # Create an eventlog object
-  log <- fuzzymineR::create_eventlog( input,
+  log <- fuzzymineR::create_eventlog( as.data.frame( input ),
                          case_id = "case",
                          activity_id = "event",
                          timestamp = "completeTime")
