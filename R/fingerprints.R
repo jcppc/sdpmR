@@ -13,9 +13,9 @@
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
 
-spots_version <- function() {
-  print("Hello, from SPOTS v.1.0.0")
-}
+#spots_version <- function() {
+#  print("Hello, from SPOTS v.1.0.0")
+#}
 
 
 spot_fingerprints <- function( input,
@@ -27,13 +27,14 @@ spot_fingerprints <- function( input,
                                graph_palette = "Greens" ) {
 
  library(fuzzymineR)
- source('viz_fuzzy_model2.R')
+ #source('R/viz_fuzzy_model2.R')
 
   # Load the sample dataset
   data("artificial_loan_process")
+  input <- as.data.frame( artificial_loan_process ); graph_direction <- "TB"; graph_palette <- "Greens"
 
   # Create an eventlog object
-  log <- fuzzymineR::create_eventlog( input ,
+  log <- fuzzymineR::create_eventlog( input,
                          case_id = "case",
                          activity_id = "event",
                          timestamp = "completeTime")
@@ -51,7 +52,7 @@ spot_fingerprints <- function( input,
 
   DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( paste0( output, "/VariantModel.pdf" ))
 
-  return ("Model Done.");
+  return ("\nModel Done.");
 
 }
 

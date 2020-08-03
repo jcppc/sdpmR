@@ -557,13 +557,13 @@ viz_fuzzy_model2 <- function(metrics, node_sig_threshold = 0, edge_sig_threshold
                  label = node_labels,
                  color_level = agg_node_sig_2,
                  color = "grey",
-                 fontname = "Arial",
+                 fontname = "Times New Roman",
                  fontsize = 10,
                  fontcolor = "black",
                  shape = "rectangle",
                  style = "rounded,filled",
                  fixedsize = FALSE,
-                 penwidth = 1.5,
+                 penwidth = 2,
                  tooltip = agg_node_sig_2
   ) -> nodes
 
@@ -571,9 +571,9 @@ viz_fuzzy_model2 <- function(metrics, node_sig_threshold = 0, edge_sig_threshold
   create_edge_df(from = from_id,
                  to = to_id,
                  label = edge_labels,
-                 penwidth = edge_width,
-                 fontname = "Arial",
-                 color = "blue"
+                 penwidth = edge_width*2,
+                 fontname = "Times New Roman",
+                 color = "black"
   ) -> edges
 
   min_sig_level <- min(nodes$color_level)
@@ -589,6 +589,8 @@ viz_fuzzy_model2 <- function(metrics, node_sig_threshold = 0, edge_sig_threshold
                         cut_points = seq(min_sig_level - .1, max_sig_level + .1, length.out = 9)) %>%
     add_global_graph_attrs(attr = "layout", value =  "dot", attr_type = "graph") -> graph
 
+  #NNodes <<- nodes
+  #EEdges <<- edges
   #Produces process model
   print(render_graph(graph))
 

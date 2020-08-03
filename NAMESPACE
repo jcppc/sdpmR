@@ -1,5 +1,5 @@
 #exportPattern("^[[:alpha:]]+")
-export(spots_version)
+#export(spots_version)
 export(spot_fingerprints)
 import(fuzzymineR)
 import(DiagrammeRsvg)
