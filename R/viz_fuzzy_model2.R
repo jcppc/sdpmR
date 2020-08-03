@@ -118,7 +118,10 @@
 #'
 #' @export
 
-viz_fuzzy_model2 <- function(metrics, node_sig_threshold = 0, edge_sig_threshold = 0.4, edge_sig_to_corr_ratio = 0.75, preserve_threshold = 0.4, offset_threshold = 0.1, node_sig_weights = c(freq = 1, routing = 1), sig_weights = c(freq = 1, dist = 1),corr_weights = c(prox = 1, end_point = 1, originator = 1, data_type = 1, data_value = 1)){
+library(dplyr)
+library(DiagrammeR)
+
+viz_fuzzy_model2 <- function(metrics, node_sig_threshold = 0, edge_sig_threshold = 0.4, edge_sig_to_corr_ratio = 0.75, preserve_threshold = 0.4, offset_threshold = 0.1, node_sig_weights = c(freq = 1, routing = 1), sig_weights = c(freq = 1, dist = 1),corr_weights = c(prox = 1, end_point = 1, originator = 1, data_type = 1, data_value = 1), graph_layout ="TB", graph_palette = "Greens"){
 
   if(length(node_sig_weights) != 2 || !is.numeric(node_sig_weights)){
     stop("Invalid length or class of node_sig_weigths")
@@ -578,11 +581,11 @@ viz_fuzzy_model2 <- function(metrics, node_sig_threshold = 0, edge_sig_threshold
 
 
   create_graph(nodes, edges) %>%
-    add_global_graph_attrs(attr = "rankdir", value = "RL",attr_type = "graph") %>%
+    add_global_graph_attrs(attr = "rankdir", value = graph_layout, attr_type = "graph") %>%
     colorize_node_attrs(node_attr_from = "color_level",
                         node_attr_to = "fillcolor",
                         default_color = "white",
-                        palette = "Blues",
+                        palette = graph_palette,
                         cut_points = seq(min_sig_level - .1, max_sig_level + .1, length.out = 9)) %>%
     add_global_graph_attrs(attr = "layout", value =  "dot", attr_type = "graph") -> graph
 

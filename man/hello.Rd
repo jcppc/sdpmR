@@ -1,12 +1,12 @@
-\name{spots_version}
-\alias{spots_version}
+\name{spot_fingerprints}
+\alias{spot_fingerprints}
 \title{Hello, World!}
 \usage{
-spots_version()
+spot_fingerprints()
 }
 \description{
 Prints Hello, from SPOTS v.1.0.0"
 }
 \examples{
-spots_version()
+spot_fingerprints()
 }

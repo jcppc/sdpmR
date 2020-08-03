@@ -23,17 +23,17 @@ spot_fingerprints <- function( input,
                                activity_id = "event",
                                timestamp = "completeTime",
                                output = ".",
-                               direction = "",
-                               palette = "Blues" ) {
+                               graph_direction = "TB",
+                               graph_palette = "Greens" ) {
 
  library(fuzzymineR)
- source('./viz_fuzzy_model2.R')
+ source('viz_fuzzy_model2.R')
 
   # Load the sample dataset
-  #data("artificial_loan_process")
+  data("artificial_loan_process")
 
   # Create an eventlog object
-  log <- fuzzymineR::create_eventlog( artificial_loan_process ,
+  log <- fuzzymineR::create_eventlog( input ,
                          case_id = "case",
                          activity_id = "event",
                          timestamp = "completeTime")
@@ -47,7 +47,7 @@ spot_fingerprints <- function( input,
   model <- viz_fuzzy_model2(metrics = metrics,
                   node_sig_threshold = 0,
                   edge_sig_threshold = 0.3,
-                  edge_sig_to_corr_ratio = 0.75)
+                  edge_sig_to_corr_ratio = 0.75, graph_layout = graph_direction, graph_palette = graph_palette)
 
   DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( paste0( output, "/VariantModel.pdf" ))
 

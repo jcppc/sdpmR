@@ -9,8 +9,15 @@ Description: - This package, loads an event log with developers activities.
     - Based on the fingerprints, splits the dataset into the correspondent process variants.
     - Discovers and plot each variant model using the FuzzyMiner algorithm.
     - Render the data into pdf and latex formats.
-License: Free
+Depends: R (>= 3.1.0)
+License: GPL
 Encoding: UTF-8
 LazyData: true
-Imports: fuzzymineR,DiagrammeRsvg,rsvg
+RoxygenNote: 5.0.1
+Imports: fuzzymineR,DiagrammeR,DiagrammeRsvg,rsvg,
+    dplyr,
+    bupaR,
+    stringr,
+    xesreadR
 Remotes: nirmalpatel/fuzzymineR
+
