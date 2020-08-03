@@ -2,3 +2,5 @@
 export(spots_version)
 export(spots_load)
 #import(fuzzymineR)
+#import(DiagrammeRsvg)
+#import(rsvg)

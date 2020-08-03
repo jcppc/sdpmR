@@ -18,7 +18,7 @@ spots_version <- function() {
 }
 
 
-spots_load <- function( log ) {
+spots_load <- function( input , output = "." ) {
 
   #library(fuzzymineR)
 
@@ -26,13 +26,13 @@ spots_load <- function( log ) {
   #data("artificial_loan_process")
 
   # Create an eventlog object
-  log <- fuzzymineR::create_eventlog( artificial_loan_process ,
+  log <- fuzzymineR::create_eventlog( input ,
                          case_id = "case",
                          activity_id = "event",
                          timestamp = "completeTime")
 
   # Mine the fuzzy model
-  metrics <- fuzzymineR::mine_fuzzy_model(log)
+  metrics <- fuzzymineR::mine_fuzzy_model( log )
 
   # Visualize the fuzzy model for a given set of
   # parameters
@@ -42,7 +42,7 @@ spots_load <- function( log ) {
                   edge_sig_threshold = 0.3,
                   edge_sig_to_corr_ratio = 0.75)
 
-  DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( "/Users/joaocaldeira/Desktop/VariantModel.pdf" )
+  DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( paste0( output, "/VariantModel.pdf" ))
 
   return ("Model Done.");
 

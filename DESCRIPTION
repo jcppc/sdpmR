@@ -1,7 +1,7 @@
 Package: sdpmR
 Type: Package
 Title: Package to detect fingerprints in software development practices
-Version: 0.1.0
+Version: 1.0.0
 Author: João Caldeira
 Maintainer: João Caldeira <jcppc@iscte-iul.pt>
 Description: - This package, loads an event log with developers activities.
