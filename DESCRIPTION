@@ -12,5 +12,5 @@ Description: - This package, loads an event log with developers activities.
 License: Free
 Encoding: UTF-8
 LazyData: true
-Imports: DiagrammeRsvg, rsvg
+Imports: fuzzymineR,DiagrammeRsvg,rsvg
 Remotes: nirmalpatel/fuzzymineR
