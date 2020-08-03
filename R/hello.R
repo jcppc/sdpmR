@@ -22,6 +22,8 @@ spots_load <- function( input , output = "." ) {
 
   #library(fuzzymineR)
 
+
+
   # Load the sample dataset
   #data("artificial_loan_process")
 
