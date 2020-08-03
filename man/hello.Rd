@@ -19,7 +19,7 @@ library(fuzzymineR)
 # Load the sample dataset
 data("artificial_loan_process")
 log <- as.data.frame( artificial_loan_process )
-spot_fingerprints( input = log,
+spot_fingerprints( log,
                    case_id = "case",
                    activity_id = "event",
                    timestamp = "completeTime",

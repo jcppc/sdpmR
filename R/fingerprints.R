@@ -28,14 +28,17 @@ spot_fingerprints <- function( input,
 
   # Load the sample dataset
   library(fuzzymineR)
-  data("artificial_loan_process")
-  input <- artificial_loan_process; graph_direction <- "TB"; graph_palette <- "Greens"
+  #data("artificial_loan_process")
+  #input <- artificial_loan_process; graph_direction <- "TB"; graph_palette <- "Greens"
+  #elog <- readr::read_delim( "/Users/joaocaldeira/Desktop/Manual.csv", ";" )
+
+  #input <- elog[,c("team","commandName","timestamp_begin","timestamp_end")]
 
   # Create an eventlog object
   log <- fuzzymineR::create_eventlog( as.data.frame( input ),
-                         case_id = "case",
-                         activity_id = "event",
-                         timestamp = "completeTime")
+                         case_id = case_id,
+                         activity_id = activity_id,
+                         timestamp = timestamp)
 
   # Mine the fuzzy model
   metrics <- fuzzymineR::mine_fuzzy_model( log )
@@ -50,7 +53,7 @@ spot_fingerprints <- function( input,
 
   DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( paste0( output, "/VariantModel.pdf" ))
 
-  return ("\nModel Done.");
+  return ("Model Done.");
 
 }
 
