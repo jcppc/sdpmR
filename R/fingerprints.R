@@ -18,17 +18,22 @@ spots_version <- function() {
 }
 
 
-spots_load <- function( input , output = "." ) {
+spot_fingerprints <- function( input,
+                               case_id = "case",
+                               activity_id = "event",
+                               timestamp = "completeTime",
+                               output = ".",
+                               direction = "",
+                               palette = "Blues" ) {
 
-  #library(fuzzymineR)
-
-
+ library(fuzzymineR)
+ source('./viz_fuzzy_model2.R')
 
   # Load the sample dataset
   #data("artificial_loan_process")
 
   # Create an eventlog object
-  log <- fuzzymineR::create_eventlog( input ,
+  log <- fuzzymineR::create_eventlog( artificial_loan_process ,
                          case_id = "case",
                          activity_id = "event",
                          timestamp = "completeTime")
@@ -39,7 +44,7 @@ spots_load <- function( input , output = "." ) {
   # Visualize the fuzzy model for a given set of
   # parameters
 
-  model <- fuzzymineR::viz_fuzzy_model(metrics = metrics,
+  model <- viz_fuzzy_model2(metrics = metrics,
                   node_sig_threshold = 0,
                   edge_sig_threshold = 0.3,
                   edge_sig_to_corr_ratio = 0.75)
