@@ -24,7 +24,10 @@ spot_fingerprints <- function( input,
                                timestamp = "completeTime",
                                output = ".",
                                graph_direction = "TB",
-                               graph_palette = "Greens" ) {
+                               graph_palette = "Greens",
+                               node_threshold = 0,
+                               edge_threshold = 0.3,
+                               edge_correlation_ratio = 0.75 ) {
 
   # Load the sample dataset
   library(fuzzymineR)
@@ -47,9 +50,9 @@ spot_fingerprints <- function( input,
   # parameters
 
   model <- viz_fuzzy_model2(metrics = metrics,
-                  node_sig_threshold = 0,
-                  edge_sig_threshold = 0.3,
-                  edge_sig_to_corr_ratio = 0.75, graph_layout = graph_direction, graph_palette = graph_palette)
+                  node_sig_threshold = node_threshold,
+                  edge_sig_threshold = edge_threshold,
+                  edge_sig_to_corr_ratio = edge_correlation_ratio, graph_layout = graph_direction, graph_palette = graph_palette)
 
   DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( paste0( output, "/VariantModel.pdf" ))
 
