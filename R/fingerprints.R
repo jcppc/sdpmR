@@ -23,6 +23,8 @@ spot_fingerprints <- function( input,
                                activity_id = "event",
                                timestamp = "completeTime",
                                output = ".",
+                               export_variants = TRUE,
+                               export_metrics = TRUE,
                                graph_direction = "TB",
                                graph_palette = "Greens",
                                node_threshold = 0,
@@ -54,9 +56,10 @@ spot_fingerprints <- function( input,
                   edge_sig_threshold = edge_threshold,
                   edge_sig_to_corr_ratio = edge_correlation_ratio, graph_layout = graph_direction, graph_palette = graph_palette)
 
-  DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( paste0( output, "/VariantModel.pdf" ))
+  if ( export_variants ) DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( paste0( output, "/VariantModel.pdf" ))
+  if ( export_metrics ) writeTable( metrics, output);
 
-  return ("Model Done.");
+  return ( metrics );
 
 }
 

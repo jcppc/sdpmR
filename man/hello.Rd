@@ -24,6 +24,8 @@ spot_fingerprints( log,
                    activity_id = "event",
                    timestamp = "completeTime",
                    output = ".",
+                   export_variants = TRUE,
+                   export_metrics = TRUE,
                    graph_direction = "TB",
                    graph_palette = "Greens" )
 }
