@@ -20,6 +20,7 @@ library(fuzzymineR)
 data("artificial_loan_process")
 log <- as.data.frame( artificial_loan_process )
 spot_fingerprints( log,
+                   variant_id = "variant",
                    case_id = "case",
                    activity_id = "event",
                    timestamp = "completeTime",

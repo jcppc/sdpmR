@@ -19,6 +19,7 @@
 
 
 spot_fingerprints <- function( input,
+                               variant_id = "variant",
                                case_id = "case",
                                activity_id = "event",
                                timestamp = "completeTime",
@@ -32,12 +33,7 @@ spot_fingerprints <- function( input,
                                edge_correlation_ratio = 0.75 ) {
 
   # Load the sample dataset
-  library(fuzzymineR)
-  #data("artificial_loan_process")
-  #input <- artificial_loan_process; graph_direction <- "TB"; graph_palette <- "Greens"
-  #elog <- readr::read_delim( "/Users/joaocaldeira/Desktop/Manual.csv", ";" )
-
-  #input <- elog[,c("team","commandName","timestamp_begin","timestamp_end")]
+  #library(fuzzymineR)
 
   # Create an eventlog object
   log <- fuzzymineR::create_eventlog( as.data.frame( input ),
@@ -48,8 +44,7 @@ spot_fingerprints <- function( input,
   # Mine the fuzzy model
   metrics <- fuzzymineR::mine_fuzzy_model( log )
 
-  # Visualize the fuzzy model for a given set of
-  # parameters
+  # Visualize the fuzzy model for a given set of parameters
 
   model <- viz_fuzzy_model2(metrics = metrics,
                   node_sig_threshold = node_threshold,
