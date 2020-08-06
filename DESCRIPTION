@@ -18,6 +18,8 @@ Imports: fuzzymineR,DiagrammeR,DiagrammeRsvg,rsvg,
     dplyr,
     bupaR,
     stringr,
-    xesreadR
+    xesreadR,
+    openxlsx,
+    utils
 Remotes: nirmalpatel/fuzzymineR
 

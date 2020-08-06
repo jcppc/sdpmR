@@ -57,7 +57,11 @@ spot_fingerprints <- function( input,
                   edge_sig_to_corr_ratio = edge_correlation_ratio, graph_layout = graph_direction, graph_palette = graph_palette)
 
   if ( export_variants ) DiagrammeRsvg::export_svg( model ) %>% charToRaw %>% rsvg::rsvg_pdf( paste0( output, "/VariantModel.pdf" ))
-  if ( export_metrics ) writeTable( metrics, output);
+  if ( export_metrics ) {
+                         writeTable( metrics, output);
+                         write.xlsx(metrics, file = paste0( output, "/metrics.xlsx" ), colNames = TRUE)
+                         write.csv(metrics, file = paste0( output, "/metrics.csv" ), col.names = TRUE)
+                       }
 
   return ( metrics );
 
