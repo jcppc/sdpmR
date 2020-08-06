@@ -32,8 +32,8 @@ spot_fingerprints <- function( input,
                                edge_threshold = 0.3,
                                edge_correlation_ratio = 0.75 ) {
 
-  # Load the sample dataset
-  #library(fuzzymineR)
+
+  library(fuzzymineR)
 
   # Create an eventlog object
   log <- fuzzymineR::create_eventlog( as.data.frame( input ),
